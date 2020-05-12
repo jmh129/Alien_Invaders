@@ -68,6 +68,9 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
         create_fleet(ai_settings, screen, ship, aliens)
         ship.center_ship()
 
+        # Play background music. 
+        play_music()
+
 def fire_bullet(ai_settings, screen, ship, bullets):
     """Fire a bullet, if limit not reached yet."""
     # Create a new bullet, add to bullets group.
@@ -245,3 +248,12 @@ def create_fleet(ai_settings, screen, ship, aliens):
         for alien_number in range(number_aliens_x):
             create_alien(ai_settings, screen, aliens, alien_number,
                 row_number)
+
+def play_music():
+    """Play background music."""
+    pygame.mixer.init()
+
+    # All the stars are closer
+    pygame.mixer.music.load("sounds/background_music.ogg")
+
+    pygame.mixer.music.play(-1)
